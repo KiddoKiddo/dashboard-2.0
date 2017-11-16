@@ -1,0 +1,25 @@
+{
+  "name": "dashboard-2.0",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.7.1",
+    "moment": "^2.19.2",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.5",
+    "react-canvas-gauges": "^1.2.1",
+    "react-chartjs-2": "^2.6.4",
+    "react-dom": "^16.0.0",
+    "react-grid-layout": "^0.16.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
