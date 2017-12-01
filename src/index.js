@@ -1,69 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactGridLayout from 'react-grid-layout';
 
-// Config
-import Config from './config';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
-// Widgets
-import Container from './components/Container';
-import VibrationSensorsPanel from './components/VibrationSensorsPanel';
+// Style for overall of the page
+import './index.css'
 
-// TODO Handle css here
-import './css/index.css'
-
-// Bootstrap
+// Bootstrap (included here as used for all pages)
 import 'bootstrap/dist/css/bootstrap.css';
 
-// React Grid Layout
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
+// Individual pages
+import SensorsDashboard from './SensorsDashboard'
+import QueryDashboard from './QueryDashboard'
 
-class App extends Component {
+// The wrapper for all the pages.
+// Define routes and individual pages below
+const MainLayout = () => (
+  <div>       
+    <Route path="/" component={ SensorsDashboard }/>
+    <Route path="/query" component={ QueryDashboard }/>
+  </div>
+)
 
-  render() {
-    // Connfig for each widgets
-    const widgets = {
-      'vibration-sensors': {
-        title: 'Vibration Sensors',
-        panel: VibrationSensorsPanel,
-      },
-      'current-sensors': {
-        title: 'Current Sensors'
-      },
-      'process-signal': {
-        title: 'Process Signal'
-
-      },
-      'temperature-sensors': {
-        title: 'Temperature'
-
-      }
-    }
-    // Layout
-    return ( 
-      <ReactGridLayout className="layout" {...Config.layout}>
-        <div key="a">
-          <Container {...widgets['vibration-sensors']}/>
-        </div>
-        <div key="b">
-          <Container {...widgets['current-sensors']}/>
-        </div>
-        <div key="c">
-          <Container {...widgets['process-signal']}  />
-        </div>
-        <div key="d">
-          <Container {...widgets['temperature-sensors']}  />
-        </div>
-      </ReactGridLayout>
-    )
-  }
-
-  componentDidMount() {
-
-  }
-}
-ReactDOM.render( 
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(
+    <BrowserRouter>
+        <MainLayout />
+    </BrowserRouter>
+, document.getElementById('root'));
