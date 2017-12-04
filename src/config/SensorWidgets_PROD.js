@@ -11,37 +11,77 @@ const Widgets_PRODUCTION = [
     panel: VibrationSensorsPanel,
     devices: [
       {
-        'device': 'X Right Guide X',
+        'device': 'Main Spindle Front Bearing',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'X Right Guide Y',
+        'device': 'Main Spindle Rear Bearing',
         'source':['12345'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'X Right Guide Z',
+        'device': 'X-drive X',
         'source':['123456'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw X',
+        'device': 'X-drive Y',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw Y',
+        'device': 'X-drive Z',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw Z',
+        'device': 'Y-drive X',
+        'source':['123456'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-drive Y',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z inner guide X',
+        'device': 'Y-drive Z',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-drive X',
+        'source':['123456'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-drive Y',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-drive Z',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 1',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 2',
+        'source':['12345'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 1',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 2',
         'source':['12345'],
         'filter':[{'process':'range'}]
       },
@@ -51,35 +91,15 @@ const Widgets_PRODUCTION = [
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z inner guide Z',
+        'device': 'Z-slide 1',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z outer guide X',
-        'source':['abcde'],
-        'filter':[{'process':'range'}]
-      },
-            {
-        'device': 'Z outer guide Y',
+        'device': 'Z-slide 2',
         'source':['12345'],
         'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Z outer guide Z',
-        'source':['123456'],
-        'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Operation area X',
-        'source':['abcde'],
-        'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Operation area Y',
-        'source':['abcde'],
-        'filter':[{'process':'range'}]
-      },
+      }
     ]
   },
   {

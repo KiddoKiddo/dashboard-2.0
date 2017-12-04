@@ -15,7 +15,7 @@ class InputPanel extends Component {
   }
 
   render() {
-    // TODO Getting from API
+    // TODO Getting from API (pending for API)
     const items = [
       { id: '1', 'name': 'one'},
       { id: '2', 'name': 'two'},

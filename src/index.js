@@ -17,7 +17,7 @@ import QueryDashboard from './QueryDashboard'
 // Define routes and individual pages below
 const MainLayout = () => (
   <div>       
-    <Route path="/" component={ SensorsDashboard }/>
+    <Route path="/sensor" component={ SensorsDashboard }/>
     <Route path="/query" component={ QueryDashboard }/>
   </div>
 )
