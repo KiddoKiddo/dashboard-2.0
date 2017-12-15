@@ -15,9 +15,26 @@ const ReactGridLayout = WidthProvider(RGL);
 
 class SensorsDashboard extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+    this.setDataForParent = this.setDataForParent.bind(this)
+  }
+
+  setDataForParent(panelPos, data) {
+    this.setState({ [panelPos]: data })
+  }
+
   renderWidget(config) {
     return (
-      <div key={ config['pos'] }> <Container {...config}/> </div>
+      <div key={ config['pos'] }> 
+        <Container {...config} 
+          set={ this.setDataForParent } 
+          dataFromParent={ this.state[config['pos']] }
+        /> 
+      </div>
     )
   }
 

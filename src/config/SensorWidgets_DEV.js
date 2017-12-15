@@ -11,75 +11,90 @@ const Widgets_DEVELOPMENT = [
     panel: VibrationSensorsPanel,
     devices: [
       {
-        'device': 'X Right Guide X',
+        'device': 'Main spindle front bearing',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'X Right Guide Y',
+        'device': 'Main spindle rear bearing',
         'source':['12345'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'X Right Guide Z',
+        'device': 'X-drive X',
         'source':['123456'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw X',
+        'device': 'X-drive Y',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw Y',
+        'device': 'X-drive Z',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z ball screw Z',
-        'source':['abcde'],
-        'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Z inner guide X',
-        'source':['12345'],
-        'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Z inner guide Y',
+        'device': 'Y-drive X',
         'source':['123456'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z inner guide Z',
+        'device': 'Y-drive Y',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Z outer guide X',
+        'device': 'Y-drive Z',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
             {
-        'device': 'Z outer guide Y',
-        'source':['12345'],
-        'filter':[{'process':'range'}]
-      },
-      {
-        'device': 'Z outer guide Z',
+        'device': 'Z-drive X',
         'source':['123456'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Operation area X',
+        'device': 'Z-drive Y',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
       {
-        'device': 'Operation area Y',
+        'device': 'Z-drive Z',
         'source':['abcde'],
         'filter':[{'process':'range'}]
       },
+      {
+        'device': 'X-slide 1',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 2',
+        'source':['12345'],
+        'filter':[{'process':'range'}]
+      },
+            {
+        'device': 'Y-slide 1',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 2',
+        'source':['12345'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-slide 1',
+        'source':['abcde'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-slide 2',
+        'source':['12345'],
+        'filter':[{'process':'range'}]
+      }
     ]
   },
   {
@@ -96,7 +111,7 @@ const Widgets_DEVELOPMENT = [
     title: 'Process Signal',
     panel: SignalProcessingPanel,
     devices: {
-      'source': [ '#2#B-X-FFT', '#2#B-Y-FFT', '#2#B-Z-FFT'],
+      'source': ['#2#B-X-FFT', '#2#B-Y-FFT', '#2#B-Z-FFT'],
       'filter': [{"process": "group", "argument": 10}]
     }
   },
@@ -115,6 +130,8 @@ const Widgets_DEVELOPMENT = [
       { key: 8, source: 'abcde'},
       { key: 9, source: '123456'},
       { key: 10, source: 'abcde'},
+      { key: 11, source: 'abcde'},
+      { key: 12, source: 'abcde'},
     ]
   }  
 ]

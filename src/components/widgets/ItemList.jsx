@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 const style={
   container: {
-    height: 200,
-    autoflowY: 'auto'
+    height: 400,
+    overflow: 'scroll'
   }
 }
 
@@ -41,7 +41,7 @@ class ItemList extends Component {
         </a>)
     
 		return (
-      <div key='panel' style={style.container}>
+      <div key='panel' style={ style.container }>
         <div className="list-group">
           {list}
         </div>

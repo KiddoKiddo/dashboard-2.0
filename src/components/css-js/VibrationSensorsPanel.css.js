@@ -13,7 +13,10 @@ export const style = {
     borderRadius: 2
   },
   'gauge': {
-    'width': 120, 
-    'height': 120
+    'width': 100, 
+    'height': 100
+  },
+  'gaugeLabel': {
+    color: 'white'
   }
 }

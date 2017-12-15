@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 import { Bar } from 'react-chartjs-2';
+import _ from 'lodash';
+
+const containerStyle = {
+  background: 'rgba(255, 255, 255, 0.8)',
+  borderRadius: '2px'
+}
 
 class FFTBarChart extends Component {
   state = {
@@ -13,9 +19,9 @@ class FFTBarChart extends Component {
     // Update data
     chart.data.datasets[0].data = props.data
 
-    // Update number of label (if any)
+    // Update number of label (bucket) (if any)
     if(props.data.length !== this.state.labelCount) {
-      chart.data.labels = Array.from(new Array(props.data.length), (d, i) => i )
+      chart.data.labels = _.times(props.data.length, (i) => i)
       this.setState({
         labelCount: props.data.length
       })
@@ -36,7 +42,7 @@ class FFTBarChart extends Component {
   render() {
     // Default look
   	const data = {
-      labels: Array.from(new Array(120), (d, i) => i ), 
+      labels: _.times(this.state.labelCount, (i) => i), 
       datasets: [{
           data: [],
           borderSkipped: 'left',
@@ -44,21 +50,29 @@ class FFTBarChart extends Component {
           borderWidth: 0,
       }]
     }
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: false,
+      tooltips: { enabled: false },
+      layout: {
+        padding: { top: 10, left: 10, right: 10, bottom: 10}
+      }
+    }
 
+    // Set title
+    const title = this.props.title
+    if( title ) {
+      _.assign(options, {
+        title:  { display: true, text: title }
+      })
+    }
   	return (
-  		<div style={this.props.containerStyle}>
+  		<div style={ _.assign(containerStyle, this.props.containerStyle) }>
         <Bar
           ref='chart'   
-          data={data} 
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: false,
-            tooltips: { enabled: false },
-            layout: {
-              padding: { top: 10, left: 10, right: 10, bottom: 10}
-            } 
-          }}
+          data={ data } 
+          options={ options }
         />
       </div>
     )

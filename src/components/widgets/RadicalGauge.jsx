@@ -11,9 +11,9 @@ class ReactRadialGauge extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.gauge.update({
-      value: nextProps.value
-    })
+    if(nextProps.value !== undefined){
+      this.gauge.value = nextProps.value.toFixed(3)
+    }
   }
 
   shouldComponentUpdate() {
@@ -22,13 +22,11 @@ class ReactRadialGauge extends Component {
 
   render () {
     return (
-      <canvas ref={(canvas) => {
-        this.el = canvas
-      }} 
+      <canvas ref={(canvas) => { this.el = canvas }} 
               onClick={ this.props.clickHandler }
       />
     )
   }
 }
 
-export default ReactRadialGauge
+export default ReactRadialGauge;

@@ -14,7 +14,7 @@ import ResultPanel from './components/ResultPanel'
 
 const ReactGridLayout = WidthProvider(RGL);
 
-// TODO Organize config properly
+// TODO Organize css style too messi here properly
 const style = {
   container: {
     background: 'rgba(200, 200, 200, 0.3)'
@@ -39,18 +39,37 @@ const layout = {
 }
 
 class QueryDashboard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+
+    }
+
+    this.prevTimeWindow = this.prevTimeWindow.bind(this)
+    this.nextTimeWindow = this.nextTimeWindow.bind(this)
+  }
+
+  prevTimeWindow() {
+    this.setState({ next: false })
+  }
+
+  nextTimeWindow() {
+    this.setState({ next: true })
+  }
+
   render() {
     return (
       <ReactGridLayout className='layout' {...layout}>
           <div key='input'>
-            <Container panel={InputPanel} title='Input' />
+            <Container panel={InputPanel} title='Input' nextTimeWindow={ this.state.next } />
           </div>
           <div key='toolbar' style={style.container}>
-            <button key='prev' style={style.prevNextBtn}>PREV</button>
-            <button key='next' style={style.prevNextBtn}>NEXT</button>
+            <button key='next' style={style.prevNextBtn} onClick={ this.nextTimeWindow }>NEXT</button>
+            <button key='prev' style={style.prevNextBtn} onClick={ this.prevTimeWindow }>PREV</button>
           </div>
           <div key='result' style={style.container}>
-            <ResultPanel/>
+            <ResultPanel sensors options />
           </div>
       </ReactGridLayout>
     )

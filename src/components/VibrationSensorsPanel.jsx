@@ -25,8 +25,13 @@ class VibrationSensorsPanel extends Component {
     this.setState({
       hidden: Array.from(new Array(this.state.data.length), (d, i) => i!==index)
     })
+    console.log(this.state.data[index]['fft'])
+    this.props.set('c', { // Set to Signal Processing panel (refer to config.js and SensorWidgets_PROD.js)
+      device: this.state.data[index]['label'],
+      fft: this.state.data[index]['fft']
+    })
   }
-
+  // To show all the gauge again
   showAll() {
     this.setState({
       hidden: Array.from(new Array(this.state.data.length), (d, i) => false)
@@ -34,12 +39,14 @@ class VibrationSensorsPanel extends Component {
   }
 
   render() {
-    const gauges = this.state.data.map((datum, index) => {
+    const gauges = this.state.data.map((d, index) => {
       return <RadialGauge
          key={ 'gauge-'+index }
          units=''
-         title={ datum.label }
-         value={ datum.values[0] }
+         title={ d.label }
+         colorTitle={'black'}
+         fontTitleSize={40}
+         value={ d.values[0] }
          minValue={0} maxValue={15}  
          majorTicks={['0', '2', '4', '6', '8', '10  ', '12', '14']}
          minorTicks={1}
@@ -68,40 +75,60 @@ class VibrationSensorsPanel extends Component {
     this.socket = new WebSocket(WS.url)
     this.socket.onopen = () => {
       // Setup subscription
-      this.subscription = {}
-      this.props.devices.forEach((d, i) => {
-        this.subscription[shortid.generate()] = d
+      const subscription = {}
+      const init_data = []
+      this.props.devices.forEach((d) => {
+        const sessionKey = shortid.generate()
+        subscription[sessionKey] = d 
+
+        // To setup init data array
+        init_data.push({
+          key: d.device, 
+          label: d.device,
+          source: d.source, 
+          sessionKey: sessionKey,
+          fft: d.fft,
+          values: [],
+          emptyCount: 0
+        })
       })
 
       // Send subscription
-      this.socket.send(JSON.stringify(this.subscription))
+      this.socket.send(JSON.stringify(subscription))
+
+      // Init data & hidden flag 
+      this.setState({
+        data: init_data,
+        hidden: _.times(_.size(init_data), false)
+      })
     }
 
     this.socket.onmessage = (socket) => {
       // Data format
       // {'<sessionKey>': {<channel_name>: [<data>] }}
-      // TODO: change data format when rewrite the websocket portion
       const data = JSON.parse(socket.data)
 
-      const updated_data = _.keys(data).map((sessionKey) => {
-        const d = data[sessionKey]
-        const config = this.subscription[sessionKey]
-        return {  
-          key: config.device, 
-          label: config.device, 
-          values: [ _.values(d)[0][1]] } // UGLY FIX THIS
+      const updated_data = this.state.data.map((d) => {
+        // new_data format:
+        // {<channel_name>: [<data>]}
+        const new_data = data[d['sessionKey']]
+        if( ! _.isEmpty(new_data)) {
+          d['values'] = [ _.values(new_data)[0][1] ]
+          d['emptyCount'] = 0 // Reset counter
+        } else {
+          // If the source repeatively receiving no data, set to 0
+          // To smooth sudden the needle position because of ONE occasion of no data
+          if(d['emptyCount'] > 5){
+            d['emptyCount'] = 0
+            d['values'] = []
+          } else {
+            d['emptyCount'] = d['emptyCount'] + 1
+          }
         }
-      )
-
-      // Update state data of this panel
-      const newState = { data: updated_data }
-
-      // Init hidden array (if any)
-      if(this.state.hidden.length === 0) {
-        newState['hidden'] = _.times(updated_data.length, false)
-      }
+        return d
+      })
       
-      this.setState(newState);
+      this.setState({ data: updated_data });
     }
   }
 
