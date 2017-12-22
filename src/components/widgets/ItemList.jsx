@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
+import _ from 'lodash';
+
 const style={
   container: {
-    height: 400,
+    height: 500,
     overflow: 'scroll'
   }
 }
@@ -29,8 +31,10 @@ class ItemList extends Component {
     })
 
     // Pass data to parent (if any)
+    
     if( this.props.getSelected ) {
-      this.props.getSelected(selected)
+      const selected_with_name = _.filter(this.props.items, (d, i) => selected.includes(d.id))
+      this.props.getSelected(selected_with_name)
     }
   }
 	render() {

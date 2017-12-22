@@ -25,7 +25,7 @@ class VibrationSensorsPanel extends Component {
     this.setState({
       hidden: Array.from(new Array(this.state.data.length), (d, i) => i!==index)
     })
-    console.log(this.state.data[index]['fft'])
+
     this.props.set('c', { // Set to Signal Processing panel (refer to config.js and SensorWidgets_PROD.js)
       device: this.state.data[index]['label'],
       fft: this.state.data[index]['fft']
@@ -44,7 +44,6 @@ class VibrationSensorsPanel extends Component {
          key={ 'gauge-'+index }
          units=''
          title={ d.label }
-         colorTitle={'black'}
          fontTitleSize={40}
          value={ d.values[0] }
          minValue={0} maxValue={15}  

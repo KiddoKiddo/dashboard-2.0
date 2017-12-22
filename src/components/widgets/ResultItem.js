@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import _ from 'lodash'
+import _ from 'lodash';
+import axios from 'axios';
 
 import FFTBarChart from './FFTBarChart'
 
@@ -9,7 +10,6 @@ const style = {
     background: '',
     padding: 10,
     color: 'white',
-    fontFamily: '"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace'
   },
   title: {
     fontSize: 20,
@@ -22,27 +22,47 @@ const style = {
 
 class ResultItem extends Component {
   state = {
-    
+    sensor: {},
+    RMS: 0, PP: 0, FFT: [],
+    hasData: false
   }
 
   componentWillReceiveProps(props){
-    
+    const sensor = props.sensor
+    const options = props.options
+    axios.get('/data_by_sensor_id/'+sensor.id
+        +'?datetime='+options.datetime.format('YYYYMMDDkkmmss')
+        +'&duration='+options.duration)
+      .then((result)=> {
+        if(result.data.status === 'OK') {
+          const data = result.data.data
+
+          if(data.length == 0) {
+            this.setState({ hasData: true })
+            return;
+          }
+
+          this.setState({
+            hasData: true,
+            sensor: sensor,
+            PP: _.find(data, ['type', 'PP'])['data'],
+            RMS: _.find(data, ['type', 'RMS'])['data'],
+            FFT:  _.find(data, ['type', 'FFT'])['data']
+          });  
+        }
+      })
   }
 
   render() {
-    const sensor = this.props.sensor
-    const options = this.props.options
-
-    const data = _.times(120, () => Math.random())
   	return (
       <div style={ style.container }>
-        <div style={ style.title }>Sensor Name</div>
-        <FFTBarChart data={ data }/>
-        <div style={ style.valueContainer  }>
-          RMS: 
-          <br/>
-          Pk - Pk:
-        </div>
+        <div style={ style.title }>{ this.state.sensor.name }</div>
+          <FFTBarChart data={ this.state.FFT }/>
+          <div style={ style.valueContainer  }>
+            RMS: { this.state.RMS }
+            <br/>
+            Pk - Pk: { this.state.PP }
+          </div>
         <hr style={{ margin: 0 }}/>
       </div>
     )

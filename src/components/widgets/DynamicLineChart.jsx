@@ -56,7 +56,7 @@ class DynamicLineChart extends Component {
     chart.data.labels.push(moment().format('HH:mm:ss'))
 
     // Hide data (if any)
-    if( props.hidden && chart.data.datasets.length > 0) {
+    if(props.hidden && chart.data.datasets.length) {
       props.hidden.forEach((d, i) => chart.data.datasets[i].hidden = d )
     }
 

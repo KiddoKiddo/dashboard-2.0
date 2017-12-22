@@ -16,14 +16,21 @@ const ReactGridLayout = WidthProvider(RGL);
 
 // TODO Organize css style too messi here properly
 const style = {
+  font: {
+    fontFamily: '"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace'
+  }, 
   container: {
-    background: 'rgba(200, 200, 200, 0.3)'
+    background: 'rgba(200, 200, 200, 0.3)',
   },
   prevNextBtn: {
     float: 'right',
     height: '100%',
     borderRadius: '5px',
     marginLeft: '10px'
+  },
+  datetime: {
+    float: 'left',
+    color: 'white'
   }
 }
 
@@ -43,33 +50,60 @@ class QueryDashboard extends Component {
     super(props)
 
     this.state = {
-
+      sensors: [],
+      options: {}
     }
 
+    this.queryHandler = this.queryHandler.bind(this)
     this.prevTimeWindow = this.prevTimeWindow.bind(this)
     this.nextTimeWindow = this.nextTimeWindow.bind(this)
   }
 
+  queryHandler(sensors, options){
+    this.setState({ 
+      sensors: sensors,
+      options: options
+    })
+  }  
+
   prevTimeWindow() {
-    this.setState({ next: false })
+    const datetime = this.state.options.datetime
+    if( ! datetime) return
+
+    const duration = this.state.options.duration
+    const options = Object.assign(this.state.options, {
+      datetime: datetime.add(-1 * duration, 'second'),
+      duration: duration
+    })
+    this.setState({ options: options })
   }
 
   nextTimeWindow() {
-    this.setState({ next: true })
+    const datetime = this.state.options.datetime
+    if( ! datetime) return
+
+    const duration = this.state.options.duration
+    const options = Object.assign(this.state.options, {
+      datetime: datetime.add(duration, 'second'),
+      duration: duration
+    })
+    this.setState({ options: options })
   }
 
   render() {
     return (
-      <ReactGridLayout className='layout' {...layout}>
+      <ReactGridLayout className='layout' {...layout} style={ style.font }>
           <div key='input'>
-            <Container panel={InputPanel} title='Input' nextTimeWindow={ this.state.next } />
+            <Container panel={InputPanel} title='Input' 
+                      queryHandler={ this.queryHandler }/>
           </div>
           <div key='toolbar' style={style.container}>
+            {this.state.options.datetime && <div style={ style.datetime }>Query Time: { this.state.options.datetime.format('YYYY-MM-DD HH:mm:ss') }</div>}
             <button key='next' style={style.prevNextBtn} onClick={ this.nextTimeWindow }>NEXT</button>
             <button key='prev' style={style.prevNextBtn} onClick={ this.prevTimeWindow }>PREV</button>
           </div>
           <div key='result' style={style.container}>
-            <ResultPanel sensors options />
+            <ResultPanel sensors={ this.state.sensors } options={ this.state.options} />
           </div>
       </ReactGridLayout>
     )

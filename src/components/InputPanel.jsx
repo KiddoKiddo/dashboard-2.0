@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import moment from 'moment'
+import moment from 'moment';
+import axios from 'axios';
 
 import ItemList from './widgets/ItemList'
 import './css-js/InputPanel.css'
@@ -10,10 +11,13 @@ class InputPanel extends Component {
     super(props)
 
     this.state={
-
+      allSensors: [],
+      sensors: [],
+      datetime: moment('2017-11-02 08:13:00').add(-1, 'days').format('YYYY-MM-DDTHH:mm'),
+      duration: 10
     };
     this.handleChange = this.handleChange.bind(this);
-    this.queryHandler = this.queryHandler.bind(this);
+    this.validateInput = this.validateInput.bind(this);
     this.getSelectedSensors = this.getSelectedSensors.bind(this);
   }
   
@@ -23,57 +27,59 @@ class InputPanel extends Component {
     const name = target.name;
     this.setState({[name]: e.target.value});
   }
-
-  queryHandler(e){
-    console.log(this.state)
-  }
   
+  validateInput(){
+    if(this.state.sensors.length == 0)  {
+      alert('Pls choose at least one sensors.')
+      return
+    }
+    const options = {
+      datetime: moment(this.state.datetime),
+      duration: this.state.duration
+    }
+    this.props.queryHandler(this.state.sensors, options)
+  }
+
   // Callback from list of sensors
   getSelectedSensors(selectedSensors){
-    this.sensors = selectedSensors
+    this.setState({ sensors: selectedSensors })
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(nextProps)
-  }
-  
+  componentDidMount() {
+    axios.get('/all_sensors')
+      .then((result)=> {
+        if(result.data.status === 'OK') {
+          this.setState({
+            allSensors: result.data.data
+          });  
+        }
+      })
+  }  
   render() {
-    // TODO Getting from API (pending for API)
-    const sensors = [
-      { id: '1', 'name': 'one'},
-      { id: '2', 'name': 'two'},
-      { id: '3', 'name': 'three'},
-      { id: '4', 'name': 'four'},
-      { id: '5', 'name': 'five'},
-      { id: '6', 'name': 'six'},
-      { id: '7', 'name': 'one'},
-      { id: '8', 'name': 'two'},
-      { id: '9', 'name': 'three'},
-      { id: '10', 'name': 'four'},
-      { id: '11', 'name': 'five'},
-      { id: '12', 'name': 'six'},
-    ]
 
     return (
       <div className="">
         <div className="in-container">
           <div className="in-container">
             <div className="in-label">Date Time:</div>
-            <input id="datetime" type="datetime-local" step="1" value={this.state.datetime} onChange={this.handleChange}/>
+            <input id="datetime" type="datetime-local" step="1" name="datetime" 
+                  value={ this.state.datetime } onChange={this.handleChange}/>
           </div>
           <div className="in-container"> 
             <div className="in-label">Duration:</div>
-            <input id='duration' type="number" min="1" max="10" defaultValue="5" value={this.state.duration} onChange={this.handleChange}/>
+            <input id='duration' type="number" min="1" max="10" name="duration" 
+                  value={ this.state.duration } onChange={ this.handleChange }/>
           </div>
         </div>
         
         <div className="in-container">
           <div className="in-label">Sensor lists:</div>
-          <ItemList className='item-list' id='sensors' items={sensors} getSelected={this.getSelectedSensors}/>
+          <ItemList className='item-list' id='sensors' 
+                    items={ this.state.allSensors } getSelected={ this.getSelectedSensors }/>
         </div>
         
         <div className="in-container button-container">
-          <button className="btn btn-success" onClick={ this.queryHandler }>QUERY</button> 
+          <button className="btn btn-success" onClick={ this.validateInput }>QUERY</button> 
         </div>
     </div>
     );

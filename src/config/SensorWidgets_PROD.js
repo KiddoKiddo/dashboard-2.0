@@ -1,5 +1,6 @@
 import VibrationSensorsPanel from '../components/VibrationSensorsPanel';
 import CurrentSensorsPanel from '../components/CurrentSensorsPanel';
+import CurrentSensorsPanel2 from '../components/CurrentSensorsPanel2';
 import SignalProcessingPanel from '../components/SignalProcessingPanel';
 import MachineTemperaturePanel from '../components/MachineTemperaturePanel';
 
@@ -114,17 +115,57 @@ const Widgets_PRODUCTION = [
       }
     ]
   },
+  // {
+  //   pos: 'b',
+  //   title: 'Current Sensors',
+  //   panel: CurrentSensorsPanel2,
+  //   devices: {
+  //     'source': [ 'cRIO-01C4243E.CM4.Ch1', 
+  //                 'cRIO-01C4243E.CM4.Ch2', 
+  //                 'cRIO-01C4243E.CM4.Ch3', 
+  //                 'cRIO-01C4243B.CM5.Ch1'],
+  //     'filter': [{'process': 'interlace', 'argument': 100 }]
+  //   }
+  // },
   {
     pos: 'b',
-    title: 'Current Sensors',
-    panel: CurrentSensorsPanel,
+    title: 'Machine Energy Consumption',
+    panel: CurrentSensorsPanel2,
     devices: {
-      'source': [ 'cRIO-01C4243E.CM4.Ch1', 
-                  'cRIO-01C4243E.CM4.Ch2', 
-                  'cRIO-01C4243E.CM4.Ch3', 
-                  'cRIO-01C4243B.CM5.Ch1'],
-      'filter': [{'process': 'interlace', 'argument': 100 }]
-    }
+      'source': ['cRIO-01C4243E.Current_RMS', 'cRIO-01C4243B.Current_RMS'],
+    },
+    // Format: [[a, b], ...]
+    //    a is index of source, e.g: cRIO-01C4243E.Current_RMS is 0
+    //    b is index in the array result 
+    // As in the cRIO documentation: 
+    //    cRIO-01C4243E.Current_RMS return array of 4
+    //    cRIO-01C4243B.Current_RMS return array of 16
+    gauges: [
+      {
+        name: 'Main spindle motor',
+        source: [[1, 4], [1, 7], [1, 9]]
+      },
+      {
+        name: 'Sub spindle motor',
+        source: [[1, 10], [1, 11], [0, 1]]
+      },
+      {
+        name: 'Chip conveyor motor',
+        source: [[1, 0], [1, 1], [1, 2]]
+      },
+      {
+        name: 'X-Drive',
+        source: [[1, 13], [1, 15], [0, 0]]
+      },
+      {
+        name: 'Y-Drive',
+        source: [[1, 3], [1, 5], [1, 12]]
+      },
+      {
+        name: 'Z-Drive',
+        source: [[1, 6], [1, 8], [1, 14]]
+      },
+    ]
   },
   {
     pos: 'c',

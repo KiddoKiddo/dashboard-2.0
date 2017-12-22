@@ -5,7 +5,7 @@ import Widgets_DEVELOPMENT from './config/SensorWidgets_DEV'
 const ENV = 'DEVELOPMENT' // 'DEVELOPMENT' or 'PRODUCTION'
 
 export const WS = { 
-  url: 'ws://localhost:8081/ws'
+  url: 'ws://localhost:5001/ws'
 };
 
 export const Layout = {
