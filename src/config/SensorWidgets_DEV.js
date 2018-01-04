@@ -1,5 +1,4 @@
 import VibrationSensorsPanel from '../components/VibrationSensorsPanel';
-import CurrentSensorsPanel from '../components/CurrentSensorsPanel';
 import CurrentSensorsPanel2 from '../components/CurrentSensorsPanel2';
 import SignalProcessingPanel from '../components/SignalProcessingPanel';
 import MachineTemperaturePanel from '../components/MachineTemperaturePanel';

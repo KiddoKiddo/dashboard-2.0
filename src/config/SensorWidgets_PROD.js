@@ -1,5 +1,4 @@
 import VibrationSensorsPanel from '../components/VibrationSensorsPanel';
-import CurrentSensorsPanel from '../components/CurrentSensorsPanel';
 import CurrentSensorsPanel2 from '../components/CurrentSensorsPanel2';
 import SignalProcessingPanel from '../components/SignalProcessingPanel';
 import MachineTemperaturePanel from '../components/MachineTemperaturePanel';
@@ -18,8 +17,32 @@ const Widgets_PRODUCTION = [
         'filter':[{'process':'range'}]
       },
       {
+        'device': 'MSFB Y',
+        'source':['cRIO-01C4243B.VM6.Ch2'],
+        'fft': ['cRIO-01C4243B.VM6_FFT.Ch1_FFT', 'cRIO-01C4243B.VM6_FFT.Ch2_FFT', 'cRIO-01C4243B.VM6_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'MSFB Z',
+        'source':['cRIO-01C4243B.VM6.Ch3'],
+        'fft': ['cRIO-01C4243B.VM6_FFT.Ch1_FFT', 'cRIO-01C4243B.VM6_FFT.Ch2_FFT', 'cRIO-01C4243B.VM6_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
         'device': 'MSRB X',
         'source':['cRIO-01C4243B.VM8.Ch1'],
+        'fft': ['cRIO-01C4243B.VM8_FFT.Ch1_FFT', 'cRIO-01C4243B.VM8_FFT.Ch2_FFT', 'cRIO-01C4243B.VM8_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'MSRB Y',
+        'source':['cRIO-01C4243B.VM8.Ch2'],
+        'fft': ['cRIO-01C4243B.VM8_FFT.Ch1_FFT', 'cRIO-01C4243B.VM8_FFT.Ch2_FFT', 'cRIO-01C4243B.VM8_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'MSRB Z',
+        'source':['cRIO-01C4243B.VM8.Ch3'],
         'fft': ['cRIO-01C4243B.VM8_FFT.Ch1_FFT', 'cRIO-01C4243B.VM8_FFT.Ch2_FFT', 'cRIO-01C4243B.VM8_FFT.Ch3_FFT'],
         'filter':[{'process':'range'}]
       },
@@ -84,8 +107,32 @@ const Widgets_PRODUCTION = [
         'filter':[{'process':'range'}]
       },
       {
+        'device': 'X-slide 1 Y',
+        'source':['cRIO-01C4243D.VM1.Ch2'],
+        'fft': ['cRIO-01C4243D.VM1_FFT.Ch1_FFT', 'cRIO-01C4243D.VM1_FFT.Ch2_FFT', 'cRIO-01C4243D.VM1_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 1 Z',
+        'source':['cRIO-01C4243D.VM1.Ch3'],
+        'fft': ['cRIO-01C4243D.VM1_FFT.Ch1_FFT', 'cRIO-01C4243D.VM1_FFT.Ch2_FFT', 'cRIO-01C4243D.VM1_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
         'device': 'X-slide 2 X',
         'source':['cRIO-01C4243D.VM5.Ch1'],
+        'fft': ['cRIO-01C4243D.VM5_FFT.Ch1_FFT', 'cRIO-01C4243D.VM5_FFT.Ch2_FFT', 'cRIO-01C4243D.VM5_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 2 Y',
+        'source':['cRIO-01C4243D.VM5.Ch2'],
+        'fft': ['cRIO-01C4243D.VM5_FFT.Ch1_FFT', 'cRIO-01C4243D.VM5_FFT.Ch2_FFT', 'cRIO-01C4243D.VM5_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'X-slide 2 Z',
+        'source':['cRIO-01C4243D.VM5.Ch3'],
         'fft': ['cRIO-01C4243D.VM5_FFT.Ch1_FFT', 'cRIO-01C4243D.VM5_FFT.Ch2_FFT', 'cRIO-01C4243D.VM5_FFT.Ch3_FFT'],
         'filter':[{'process':'range'}]
       },
@@ -96,8 +143,32 @@ const Widgets_PRODUCTION = [
         'filter':[{'process':'range'}]
       },
       {
+        'device': 'Y-slide 1 Y',
+        'source':['cRIO-01C4243E.VM3.Ch2'],
+        'fft': ['cRIO-01C4243E.VM3_FFT.Ch1_FFT', 'cRIO-01C4243E.VM3_FFT.Ch2_FFT', 'cRIO-01C4243E.VM3_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 1 Z',
+        'source':['cRIO-01C4243E.VM3.Ch3'],
+        'fft': ['cRIO-01C4243E.VM3_FFT.Ch1_FFT', 'cRIO-01C4243E.VM3_FFT.Ch2_FFT', 'cRIO-01C4243E.VM3_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
         'device': 'Y-slide 2 X',
         'source':['cRIO-01C4243E.VM2.Ch1'],
+        'fft': ['cRIO-01C4243E.VM2_FFT.Ch1_FFT', 'cRIO-01C4243E.VM2_FFT.Ch2_FFT', 'cRIO-01C4243E.VM2_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 2 Y',
+        'source':['cRIO-01C4243E.VM2.Ch2'],
+        'fft': ['cRIO-01C4243E.VM2_FFT.Ch1_FFT', 'cRIO-01C4243E.VM2_FFT.Ch2_FFT', 'cRIO-01C4243E.VM2_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Y-slide 2 Z',
+        'source':['cRIO-01C4243E.VM2.Ch3'],
         'fft': ['cRIO-01C4243E.VM2_FFT.Ch1_FFT', 'cRIO-01C4243E.VM2_FFT.Ch2_FFT', 'cRIO-01C4243E.VM2_FFT.Ch3_FFT'],
         'filter':[{'process':'range'}]
       },
@@ -108,11 +179,53 @@ const Widgets_PRODUCTION = [
         'filter':[{'process':'range'}]
       },
       {
+        'device': 'Z-slide 1 Y',
+        'source':['cRIO-01C4243D.VM5.Ch4'],
+        'fft': ['cRIO-01C4243D.VM4_FFT.Ch4_FFT', 'cRIO-01C4243D.VM5_FFT.Ch4_FFT', 'cRIO-01C4243D.VM6_FFT.Ch4_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-slide 1 Z',
+        'source':['cRIO-01C4243D.VM6.Ch4'],
+        'fft': ['cRIO-01C4243D.VM4_FFT.Ch4_FFT', 'cRIO-01C4243D.VM5_FFT.Ch4_FFT', 'cRIO-01C4243D.VM6_FFT.Ch4_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
         'device': 'Z-slide 2 X',
         'source':['cRIO-01C4243D.VM6.Ch1'],
         'fft': ['cRIO-01C4243D.VM6_FFT.Ch1_FFT', 'cRIO-01C4243D.VM6_FFT.Ch2_FFT', 'cRIO-01C4243D.VM6_FFT.Ch3_FFT'],
         'filter':[{'process':'range'}]
-      }
+      },
+      {
+        'device': 'Z-slide 2 Y',
+        'source':['cRIO-01C4243D.VM6.Ch2'],
+        'fft': ['cRIO-01C4243D.VM6_FFT.Ch1_FFT', 'cRIO-01C4243D.VM6_FFT.Ch2_FFT', 'cRIO-01C4243D.VM6_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Z-slide 2 Z',
+        'source':['cRIO-01C4243D.VM6.Ch3'],
+        'fft': ['cRIO-01C4243D.VM6_FFT.Ch1_FFT', 'cRIO-01C4243D.VM6_FFT.Ch2_FFT', 'cRIO-01C4243D.VM6_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Operation area X',
+        'source':['cRIO-01C4243D.VM7.Ch1'],
+        'fft': ['cRIO-01C4243D.VM7_FFT.Ch1_FFT', 'cRIO-01C4243D.VM7_FFT.Ch2_FFT', 'cRIO-01C4243D.VM7_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Operation area Y',
+        'source':['cRIO-01C4243D.VM7.Ch2'],
+        'fft': ['cRIO-01C4243D.VM7_FFT.Ch1_FFT', 'cRIO-01C4243D.VM7_FFT.Ch2_FFT', 'cRIO-01C4243D.VM7_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
+      {
+        'device': 'Operation area Z',
+        'source':['cRIO-01C4243D.VM7.Ch3'],
+        'fft': ['cRIO-01C4243D.VM7_FFT.Ch1_FFT', 'cRIO-01C4243D.VM7_FFT.Ch2_FFT', 'cRIO-01C4243D.VM7_FFT.Ch3_FFT'],
+        'filter':[{'process':'range'}]
+      },
     ]
   },
   // {

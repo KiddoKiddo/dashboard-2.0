@@ -36,8 +36,7 @@ class ResultItem extends Component {
       .then((result)=> {
         if(result.data.status === 'OK') {
           const data = result.data.data
-
-          if(data.length == 0) {
+          if(data.length === 0) {
             this.setState({ hasData: true })
             return;
           }
@@ -56,8 +55,9 @@ class ResultItem extends Component {
   render() {
   	return (
       <div style={ style.container }>
-        <div style={ style.title }>{ this.state.sensor.name }</div>
-          <FFTBarChart data={ this.state.FFT }/>
+        <div style={ style.title }>{ this.state.sensor.name } - { this.state.sensor.type }</div>
+          {(this.state.sensor.type === 'Accelerometer' || this.state.sensor.type === 'Acoustic') 
+            && <FFTBarChart data={ this.state.FFT }/>}
           <div style={ style.valueContainer  }>
             RMS: { this.state.RMS }
             <br/>

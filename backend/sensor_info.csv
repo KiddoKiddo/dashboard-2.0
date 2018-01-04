@@ -1,0 +1,69 @@
+Bearing X,Main Spindle Front Bearing X,Accelerometer,cRIO-01C4243B.VM6.Ch1,3c985a8f-9acc-4d44-96d9-9ba42e1dff5e
+Bearing Y,Main Spindle Front Bearing Y,Accelerometer,cRIO-01C4243B.VM6.Ch2,3251d1c3-2a25-47f7-aac1-ff6f7822c305
+Bearing Z,Main Spindle Front Bearing Z,Accelerometer,cRIO-01C4243B.VM6.Ch3,98e0e1e2-bf31-49a5-ac94-fe482a77499d
+Front Bearing X,Main Sprindle Rear Bearing X,Accelerometer,cRIO-01C4243B.VM8.Ch1,bfb00314-5dd8-46ff-b180-9f5bb9d98357
+Front Bearing Y,Main Sprindle Rear Bearing Y,Accelerometer,cRIO-01C4243B.VM8.Ch2,5beb32ec-ddcc-4794-a15c-89a407277694
+Front Bearing Z,Main Sprindle Rear Bearing Z,Accelerometer,cRIO-01C4243B.VM8.Ch3,8b232539-a0de-4d29-b6e9-5748b5a3fc38
+Operation area,Operation area X,Accelerometer,cRIO-01C4243D.VM7.Ch1,ede4b84a-ed8d-48b4-9215-1d7bbb0b3c1c
+Operation area,Operation area Y,Accelerometer,cRIO-01C4243D.VM7.Ch3,dc81fc99-7c4b-4a27-8809-0e663467bb47
+Operation area Y,Operation area Y,Accelerometer,cRIO-01C4243D.VM7.Ch2,b19e3915-b783-411e-bb56-fa04b2c00e07
+X Ball Screw X,X-drive X,Accelerometer,cRIO-01C4243B.VM7.Ch1,d0e994e0-fcf1-4f3d-a62f-e64361ddba51
+X Ball Screw Y,X-drive Y,Accelerometer,cRIO-01C4243B.VM7.Ch2,5a0fb537-4ab9-46d9-b2b0-005c5d3ba896
+X Ball Screw Z,X-drive Z,Accelerometer,cRIO-01C4243B.VM7.Ch3,12046117-755d-4fec-9c92-0e698bcce7a7
+X left guide X,X-slide 2 X,Accelerometer,cRIO-01C4243D.VM5.Ch1,4722b661-d0fc-4c5f-a6bd-6bcbd6206d81
+X left guide Y,X-slide 2 Y,Accelerometer,cRIO-01C4243D.VM5.Ch2,67a24325-fca5-454d-9800-00671cd2c2f6
+X left guide Z,X-slide 2 Z,Accelerometer,cRIO-01C4243D.VM5.Ch3,420ecdd0-2b0e-4824-b114-b40435b48ff4
+X Right Guide X,X-slide X,Accelerometer,cRIO-01C4243D.VM1.Ch1,77ed6ec2-f78c-45b7-95d2-3428a384482d
+X Right Guide Y,X-slide Y,Accelerometer,cRIO-01C4243D.VM1.Ch2,16d536ff-a0c4-45a9-9036-67a9612d9d9b
+X Right Guide Z,X-slide Z,Accelerometer,cRIO-01C4243D.VM1.Ch3,3fa173ce-7d27-4ccd-9f7b-dc4f2c5a8651
+Y ball screw X,Y-drive X,Accelerometer,cRIO-01C4243E.VM1.Ch1,d6c37bff-9ef2-40c9-99ad-fa40f6616927
+Y ball screw Y,Y-drive Y,Accelerometer,cRIO-01C4243E.VM1.Ch2,eaf2265b-c7e1-4458-8e6a-9c47e5431221
+Y ball screw Z,Y-drive Z,Accelerometer,cRIO-01C4243E.VM1.Ch3,2aef5862-dcce-4bb8-93a2-80faaf2f3640
+Y bottom X,Y-slide 1 X,Accelerometer,cRIO-01C4243E.VM3.Ch1,5ab2abfa-31c6-4861-8073-0daf2234c4f7
+Y bottom Y,Y-slide 1 Y,Accelerometer,cRIO-01C4243E.VM3.Ch2,5b2004b6-ec47-43a1-9cad-e8f362f9410e
+Y bottom Z,Y-slide 1 Z,Accelerometer,cRIO-01C4243E.VM3.Ch3,cdfa0aa6-77f9-4205-9914-9471b9485b8c
+Upper station X,Y-slide 2 X,Accelerometer,cRIO-01C4243E.VM2.Ch1,5645950c-570d-4759-9645-43dfc935426f
+Upper station Y,Y-slide 2 Y,Accelerometer,cRIO-01C4243E.VM2.Ch2,82c79934-fa21-45af-bd42-2abba075227f
+Upper station Z,Y-slide 2 Z,Accelerometer,cRIO-01C4243E.VM2.Ch3,873dea6b-a64e-4fb2-86ad-4ad7f2b81c05
+Z outer guide Z,Z-slide 2 Z,Accelerometer,cRIO-01C4243D.VM6.Ch3,d0a721a5-ddb4-4c64-8fb9-74ac2cf998b5
+Z ball screw X,Z-drive X,Accelerometer,cRIO-01C4243D.VM4.Ch1,dd3c7ce9-552d-4b7b-8c29-bfebf48fb7c4
+Z ball screw Y,Z-drive Y,Accelerometer,cRIO-01C4243D.VM4.Ch2,7253a87f-a842-4b88-8886-e3d034519478
+Z ball screw Z,Z-drive Z,Accelerometer,cRIO-01C4243D.VM4.Ch3,43fb6dbd-4a15-4522-9a1a-85ed4b042ce2
+Z inner guide X,Z-slide 1 X,Accelerometer,cRIO-01C4243D.VM4.Ch4,2aec3e1c-bf56-4457-9ca7-b6a6b67e3b1e
+Z inner guide Y,Z-slide 1 Y,Accelerometer,cRIO-01C4243D.VM5.Ch4,4a29179f-80cd-44a5-968c-54cb4bb6175d
+Z inner guide Z,Z-slide 1 Z,Accelerometer,cRIO-01C4243D.VM6.Ch4,7c85a011-f7f5-47b1-8e0a-8b47a2fe8449
+Z outer guide X,Z-slide 2 X,Accelerometer,cRIO-01C4243D.VM6.Ch1,3a2ef656-ca17-411b-9902-b46305195368
+Z outer guide Y,Z-slide 2 Y,Accelerometer,cRIO-01C4243D.VM6.Ch2,6a679fc2-9e55-4754-bd35-f388d8d9677e
+Acoustic sensor,Acoustic sensor,Acoustic,cRIO-01C4243E.AM5.Ch1,6c0b162d-40d7-493c-8785-e783c1770658
+Coolant status,Coolant status,Coolant,cRIO- 01C4243E.CoolantStatus,42063dca-7efa-4c8d-a510-6420b9747bac
+Coolant pump,Coolant pump,Coolant,cRIO-01C4243E.CM4.Ch3,803499a2-9946-482c-b094-afd5933ca80a
+COU,COU,Current,cRIO-01C4243B.CM5.Ch1,ab531b7f-c9b9-4cb2-af0e-bf4fb3f01c69
+COV,COV,Current,cRIO-01C4243B.CM5.Ch2,bf404e1e-5f7a-493a-a511-dbe78098a27d
+COW,COW,Current,cRIO-01C4243B.CM5.Ch3,ba389488-10cf-4db2-977d-3d05e3acbc99
+S1U,S1U,Current,cRIO-01C4243B.CM5.Ch10,1fdc16c2-1036-409d-90cf-4c9a7a4daeba
+S1V,S1V,Current,cRIO-01C4243B.CM5.Ch5,ebed2423-190e-4f42-a64f-b0040cec783e
+S1W,S1W,Current,cRIO-01C4243B.CM5.Ch8,d2455a57-ec29-4c15-946d-e07f5f98a3f7
+S2U,S2U,Current,cRIO-01C4243B.CM5.Ch11,f22597a4-c75a-4ae8-a8b7-497f4b6502c2
+S2V,S2V,Current,cRIO-01C4243B.CM5.Ch12,25c8d150-eeda-4c71-86f0-a1cd45284acc
+S2W,S2W,Current,cRIO-01C4243E.CM4.Ch2,18ea3544-8403-49f3-bc39-65a189993980
+XU,XU,Current,cRIO-01C4243B.CM5.Ch16,ce08bf64-0e02-4e83-9d34-d2710cc227cd
+XV,XV,Current,cRIO-01C4243E.CM4.Ch1,0ef6f8f1-afa6-4471-865c-d31d401f64e5
+XW,XW,Current,cRIO-01C4243B.CM5.Ch14,d2ba27d7-fd90-49a3-879b-9114e9138eda
+YU,YU,Current,cRIO-01C4243B.CM5.Ch4,f863fde2-e171-40be-913f-a21de350958e
+YV,YV,Current,cRIO-01C4243B.CM5.Ch6,eac3e2cd-2bbc-4907-8928-a181df4e9bbe
+YW,YW,Current,cRIO-01C4243B.CM5.Ch13,f5de79e6-7328-468c-b20f-78aee3507db5
+ZU,ZU,Current,cRIO-01C4243B.CM5.Ch9,48961b3a-f12b-4acf-8e68-20509b851a3d
+ZV,ZV,Current,cRIO-01C4243B.CM5.Ch15,ad49b8c7-883a-4945-9674-3e90e87faf3b
+ZW,ZW,Current,cRIO-01C4243B.CM5.Ch7,65022daf-e845-4a45-9f7c-063c2269076d
+Bed Z Left R ad,Bed Z Left R ad,Temperature,cRIO-01C4243B.TM4.Ch4,0c903679-5ccc-4485-b310-909aae46f4f0
+Bed Z right rear,Bed Z right rear,Temperature,cRIO-01C4243D.TM3.Ch4,a96a65ce-1cb1-4a1b-8412-e7134cd242a0
+NUTX,NUTX,Temperature,cRIO-01C4243B.TM4.Ch1,bd4b9f9e-f510-4f4c-b105-170588e2ace1
+Ball Z,NUTZ,Temperature,cRIO-01C4243B.TM4.Ch3,f9c0772d-ba7d-4fb9-995b-f401362f987e
+Shoe X left down,Shoe X left down,Temperature,cRIO-01C4243D.TM2.Ch1,775ffafb-3e62-4265-9a29-e9044cd3ee20
+Shoe X left up,Shoe X left up,Temperature,cRIO-01C4243D.TM3.Ch1,d22cd10b-0f33-4414-b9e4-b73b641aec4b
+Shoe X right down,Shoe X right down,Temperature,cRIO-01C4243D.TM2.Ch1,7a16a481-22a1-415e-9a27-c0c2902b270d
+Shoe X right up,Shoe X right up,Temperature,cRIO-01C4243D.TM3.Ch3,ae44b921-24e6-4e1f-8504-f7a82cf5c2b4
+Shoe Z left front,Shoe Z left front,Temperature,cRIO-01C4243D.TM3.Ch2,b364997a-5027-4cb7-91cc-30d7f29e76dd
+Shoe Z left rear,Shoe Z left rear,Temperature,cRIO-01C4243D.TM2.Ch3,e4953553-ab82-4420-a8bb-a99473c9fd3e
+Shoe Z Right Rear,Shoe Z Right Rear,Temperature,cRIO-01C4243B.TM4.Ch2,9c1866ce-16c1-4338-ad68-e3741182260d
+Spindle,Spindle,Temperature,cRIO-01C4243D.TM2.Ch4,5215efd8-e86a-4ff1-b301-cbc61e24ae80

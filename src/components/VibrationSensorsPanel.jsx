@@ -40,6 +40,7 @@ class VibrationSensorsPanel extends Component {
 
   render() {
     const gauges = this.state.data.map((d, index) => {
+      
       return <RadialGauge
          key={ 'gauge-'+index }
          units=''

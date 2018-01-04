@@ -98,7 +98,8 @@ class QueryDashboard extends Component {
                       queryHandler={ this.queryHandler }/>
           </div>
           <div key='toolbar' style={style.container}>
-            {this.state.options.datetime && <div style={ style.datetime }>Query Time: { this.state.options.datetime.format('YYYY-MM-DD HH:mm:ss') }</div>}
+            {this.state.options.datetime && 
+              <div style={ style.datetime }>Query Time: { this.state.options.datetime.format('YYYY-MM-DD HH:mm:ss') }</div>}
             <button key='next' style={style.prevNextBtn} onClick={ this.nextTimeWindow }>NEXT</button>
             <button key='prev' style={style.prevNextBtn} onClick={ this.prevTimeWindow }>PREV</button>
           </div>

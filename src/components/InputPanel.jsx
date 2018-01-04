@@ -23,13 +23,12 @@ class InputPanel extends Component {
   
   handleChange(e){
     const target = e.target;
-    const value = target.type === 'checkbox'? target.checked : target.value;
     const name = target.name;
     this.setState({[name]: e.target.value});
   }
   
   validateInput(){
-    if(this.state.sensors.length == 0)  {
+    if(this.state.sensors.length === 0)  {
       alert('Pls choose at least one sensors.')
       return
     }

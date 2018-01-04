@@ -41,7 +41,8 @@ class ItemList extends Component {
     const list = this.props.items.map((d, i) => 
         <a val={d.id} key={d.id}   
           className={'list-group-item list-group-item-action '+ (this.state.selected.includes(d.id) && 'active')}
-          onClick={() => this.handleClickItems(d.id)}>{d.name}
+          onClick={() => this.handleClickItems(d.id)}>
+          {d.name} - {d.type}
         </a>)
     
 		return (

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import ReactList from 'react-list';
-import _ from 'lodash';
-
 import ResultItem from './widgets/ResultItem'
 
 class ResultPanel extends Component {

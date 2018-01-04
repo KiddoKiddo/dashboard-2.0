@@ -18,7 +18,7 @@ export const Layout = {
     {i: 'd', x: 8, y: 5, w: 4, h: 5, static: true}
   ],
   cols: 12,
-  rowHeight: 80
+  rowHeight: 85
 };
 
 export const Widgets = ENV === 'PRODUCTION' ? Widgets_PRODUCTION : Widgets_DEVELOPMENT;
